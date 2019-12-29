@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: 'valkryja-servant'
+    name: 'Valkryja-Servant'
   }
 </script>
 

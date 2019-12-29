@@ -7,13 +7,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'avatar',
-      component: require('@/components/avatar').default
-    },
-    {
-      path: '/landing',
-      name: 'landing-page',
-      component: require('@/components/LandingPage').default
+      name: 'valkryja-servant',
+      component: require('@/components/room').default
     },
     {
       path: '*',

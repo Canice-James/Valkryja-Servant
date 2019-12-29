@@ -1,0 +1,42 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Electron: Main (npm)",
+      "cwd": "${workspaceFolder}",
+      "outFiles": [
+        "${workspaceFolder}/**/*.js"
+      ],
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run-script",
+        "dev"
+      ],
+      "outputCapture": "std",
+      "smartStep": true,
+      "sourceMaps": true,
+      "protocol": "inspector",
+      "port": 5858,
+      "timeout": 20000
+    },
+    {
+      "name": "Electron: Main (attach)",
+      "type": "node",
+      "request": "attach",
+      "cwd": "${workspaceFolder}",
+      "outFiles": [
+        "${workspaceFolder}/**/*.js"
+      ],
+      "skipFiles": [
+        "init.js"
+      ],
+      "smartStep": true,
+      "sourceMaps": true,
+      "protocol": "inspector",
+      "port": 5858,
+      "timeout": 20000
+    }
+  ]
+}

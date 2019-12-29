@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>valkryja-servant</title>
+    <title>Valkryja Servant</title>
     <% if (htmlWebpackPlugin.options.nodeModules) { %>
       <!-- Add `node_modules/` to global paths so `require` works properly in development -->
       <script>
@@ -10,18 +10,25 @@
       </script>
     <% } %>
     <link rel="stylesheet" type="text/css" href="static/semantic.min.css">
+    <script>
+      const jQuery = require('jquery')
+      const $ = jQuery
+    </script>
+    <script src="static/semantic.min.js"></script>
   </head>
   <body>
     <div id="app"></div>
     <!-- Set `__static` path to static files in production -->
-    <% if (!process.browser) { %>
+    <% if (!htmlWebpackPlugin.options.isBrowser && !htmlWebpackPlugin.options.isDevelopment) { %>
       <script>
-        if (process.env.NODE_ENV !== 'development') window.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
+        window.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
       </script>
     <% } %>
-    <script src="static/jquery-3.3.1.min.js"></script>
-    <script src="static/semantic.min.js"></script>
 
+    <!-- <script src="static/jquery-3.3.1.min.js"></script>
+    <script src="static/semantic.min.js"></script> -->
     <!-- webpack builds are automatically injected -->
+
+
   </body>
 </html>
