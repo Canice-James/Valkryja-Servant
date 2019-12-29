@@ -2,6 +2,8 @@
 
 > A waifu making sure you get your tasks done.
 
+![avatar text](https://i.ibb.co/gTFQN2h/Happy.png)
+
 #### Features
 
 - Read Trello Tasks due within the next week
