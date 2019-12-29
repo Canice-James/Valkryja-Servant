@@ -1,6 +1,16 @@
-# to-do-desktop
+# Valkryja Servant
 
-> An electron-vue project
+> A waifu making sure you get your tasks done.
+
+![avatar text](https://i.ibb.co/gTFQN2h/Happy.png)
+
+#### Features
+
+- Read Trello Tasks due within the next week
+- Open task cards
+- Launch workspace - opens vscode, github and nearest due trello task
+- Changes expression based on how many tasks you have due
+- Notifications - reminders sent at 10am and 10:30pm
 
 #### Build Setup
 
