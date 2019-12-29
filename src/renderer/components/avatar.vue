@@ -54,7 +54,11 @@ export default {
         this.mood = 2
       else
         this.mood = 0
-      let expIndex = this.mood+this.taskCount+this.moodModify;
+      let expIndex = 7
+
+      if (this.taskCount < 7)
+        expIndex = this.mood+this.taskCount+this.moodModify;
+
       let exp = this.expressions[expIndex];
       WorkstationService.setExpression(exp)
       return this.expressionImages[expIndex]
