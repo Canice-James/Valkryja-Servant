@@ -28,7 +28,7 @@
             <!-- <i class="dropdown icon"></i> -->
             {{ task.name }}
           </h3>
-          <p>Due on {{task.due}} </p>
+          <p v-if="task.due">Due on {{task.due}} </p>
         </div>
         <div class=" content">
           <div class=" ">

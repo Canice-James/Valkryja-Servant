@@ -120,7 +120,8 @@
         const job = new CronJob('0 */1 * * * *', async ()=> {
           const d = new Date();
           console.log('Every Tenth Minute:', d, data);
-          const { data } = await TodoService.getTodos();
+          const data = await TodoService.getTodayTodos();
+          
           this.tasks = await data;
           TodoService.setTaskCount(this.tasks.length)
           this.initWorkstation()

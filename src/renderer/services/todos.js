@@ -11,9 +11,9 @@ let API_ENDPOINT = 'https://api.trello.com/1/';
 let taskCount = 0
 
 var TodoService = {
-  makeApiRequest (query) {
+  makeAPIRequest (query) {
     return axios
-      .get(`${API_ENDPOINT}search?${query}&idBoards=mine&key=${API_KEY}&token=${API_TOKEN}`)
+      .get(`${API_ENDPOINT}search?query=${query}&idBoards=mine&key=${API_KEY}&token=${API_TOKEN}`)
       .then(res => {
         console.log(res.data.cards)
         res.data = res.data.cards.map(card=>{
@@ -30,8 +30,51 @@ var TodoService = {
         if (error) throw new Error(error)
       })
   },
+
+  makeSearchRequest (query) {
+    return axios
+      .get(`${API_ENDPOINT}search?query=${query}&cards_limit=100&key=${API_KEY}&token=${API_TOKEN}`)
+      .then(res => {
+        console.log(res.data.cards)
+        res.data = res.data.cards.map(card=>{
+          return card;
+        });
+        taskCount = res.data.length
+
+        return res;
+      })
+      .catch(error => {
+        if (error) throw new Error(error)
+      })
+  },
+
+  getTodayList (board="pDsfmnRm") {
+    return axios
+      .get(`${API_ENDPOINT}boards/${board}/lists?key=${API_KEY}&token=${API_TOKEN}`)
+      .then(res => {
+        console.log(res.data)
+        let day = new Date().getDay();
+        let list = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
+        res.data = _.find(res.data, {name: list[day]})
+        taskCount = res.data.length
+
+        return res;
+      })
+      .catch(error => {
+        if (error) throw new Error(error)
+      })
+  },
+
   getTodos () {
-    return TodoService.makeApiRequest('query=@me due:week')
+    return TodoService.makeSearchRequest('board:pDsfmnRm is:open')
+  },
+
+  async getTodayTodos(){
+    let cards = await TodoService.getTodos();
+    let list = await TodoService.getTodayList();
+
+    let res = _.filter(cards.data, {idList: list.data.id})
+    return res;
   },
 
   getPost(postId) {
