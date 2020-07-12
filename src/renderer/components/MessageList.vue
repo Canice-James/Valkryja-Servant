@@ -1,5 +1,5 @@
 <template>
-  <div class="ui inverted segment">
+  <div class="message-block ui inverted segment">
     <div class="ui inverted accordion relaxed divided list">
   
         <!-- <div class="ui inverted segment  relaxed divided list">

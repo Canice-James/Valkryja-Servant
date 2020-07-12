@@ -59,6 +59,7 @@
     "dotenv": "^8.2.0",
     "electron-json-storage": "^4.1.8",
     "electron-positioner": "^4.1.0",
+    "gsap": "^3.4.0",
     "ip": "^1.1.5",
     "jquery": "^3.4.1",
     "lodash": "^4.17.19",

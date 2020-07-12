@@ -2,7 +2,7 @@
   <div id="wrapper">
     <main>
       <message-bubble v-if="loaded" class="ui grid" style="padding-top: 1rem;">
-        <div class="ui center aligned container">
+        <div class="servant-message ui center aligned container">
           <h3>{{msg}}</h3>
         </div>
         <div class="row">
@@ -45,6 +45,7 @@
   import SystemService from './../services/system';
 
   var CronJob = require('cron').CronJob;
+  import { gsap } from "gsap";
 
 
   export default {
@@ -73,6 +74,7 @@
         .popup({
           inline: true
         })
+      WorkstationService.enterServant();
     },
     async created () {
 

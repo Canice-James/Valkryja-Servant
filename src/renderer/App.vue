@@ -11,5 +11,7 @@
 </script>
 
 <style>
-  /* CSS */
+   #app {
+     overflow: hidden;
+   } 
 </style>
