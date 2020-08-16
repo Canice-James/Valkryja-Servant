@@ -31,6 +31,7 @@ var init = async (callback) => {
 };
 
 function loadToken (callback) {
+  console.log(storage.getDataPath())
   WorkstationService.getTrelloToken((res=>{
     let token = res;
 
