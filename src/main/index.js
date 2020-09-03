@@ -1,6 +1,6 @@
 'use strict'
 
-import { app, BrowserWindow, electron, nativeImage, screen,  Menu, Tray, ipcMain } from 'electron'
+import { app, BrowserWindow, electron, nativeImage, screen,  Menu, Tray, ipcMain, globalShortcut } from 'electron'
 var Positioner = require('electron-positioner')
 var upath = require('upath')
 var storage = require('electron-json-storage')
@@ -160,6 +160,19 @@ app.on('ready', async ()=>{
   createWindow()
   createTray()
 
+  const ret = globalShortcut.register('Alt+S', () => {
+    console.log('Option called')
+    mainWindow.webContents.send('servant', 'call')
+    mainWindow.show()
+  })
+
+  if (!ret) {
+    console.log('Option failed to initialise')
+  }
+
+  // Check whether a shortcut is registered.
+  // console.log(globalShortcut.isRegistered('CommandOrControl+X'))
+
 })
 
 app.on('window-all-closed', () => {
@@ -167,6 +180,13 @@ app.on('window-all-closed', () => {
     app.quit()
   }
 })
+
+app.on('will-quit', () => {
+
+  // Unregister all shortcuts.
+  globalShortcut.unregisterAll()
+})
+
 
 app.on('activate', () => {
   if (mainWindow === null) {

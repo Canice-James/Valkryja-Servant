@@ -88,7 +88,7 @@ var init =  ( async (tasksCount, callback) => {
 
 var enterServant = ()=>{
   let tl = gsap.timeline()
-  tl.from("#wrapper", {x: 500, y: 150, ease: "elastic.out(1, 0.3)", duration: 2})
+  tl.from("#wrapper", {x: 500, y: 150, ease: "elastic.out(0.5, 0.3)", duration: 2})
   tl.from(".speech-bubble", {opacity:0, duration: 0.5}, ">-1")
   tl.from(".servant-message", {y: 40, opacity:0, duration: 0.25}, ">-0.25")
   tl.from(".message-block", {scaleY: 0, transformOrigin: "top center", duration: 0.25}, ">-0.25")

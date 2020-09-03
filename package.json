@@ -1,6 +1,6 @@
 {
   "name": "valkryja-servant",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Canice-James <ecanicthedeveloper@gmail.com>",
   "description": "A waifu making sure you get your tasks done.",
   "license": null,
@@ -112,7 +112,7 @@
     "vue-style-loader": "^4.1.0",
     "vue-template-compiler": "^2.5.16",
     "webpack": "^4.15.1",
-    "webpack-cli": "^3.0.8",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.1.4",
     "webpack-hot-middleware": "^2.22.2",
     "webpack-merge": "^4.1.3"

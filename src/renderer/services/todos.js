@@ -5,7 +5,7 @@ require('dotenv').config();
 // You can use your own logic to set your local or production domain
 const baseDomain = "https://jsonplaceholder.typicode.com";
 // The base URL is empty this time due we are using the jsonplaceholder API
-let API_KEY = process.env.TRELLO_API;
+let API_KEY = "0e59b4a3307f7f4e4e5aeb797c55cc51";
 let API_TOKEN;
 let API_ENDPOINT = 'https://api.trello.com/1/';
 let taskCount = 0

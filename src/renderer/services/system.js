@@ -27,6 +27,12 @@ var init = async (callback) => {
     }
   })
 
+  ipcRenderer.on('servant', (event, message) => {
+    console.log("Sevant channel message",  message) 
+    if (message == 'call') {
+      WorkstationService.enterServant();
+    }
+  });
 
 };
 
@@ -50,7 +56,6 @@ var track = (trackEvent) => {
   ipcRenderer.send( trackEvent, TodoService.getToken(), TodoService.getTaskCount(), WorkstationService.getExpression())
   console.log(`track ${trackEvent}`, TodoService.getToken())
 }
-
 
 var openUrl = (link => {
   electron.shell.openExternal(link)
